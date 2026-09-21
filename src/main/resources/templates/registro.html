@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nébula Music - Registro</title>
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="../static/styles/styles.css">
 </head>
 <body>
 
@@ -73,7 +73,7 @@
                            id="pseudonimo"
                            name="pseudonimo"
                            required
-                           pattern="[a-zA-Z]{3,10}-{0-9}{2,10"
+                           pattern="[a-zA-Z]{3,10}-[0-9]{2,10}"
                            placeholder="Nebula-2026"
                            minlength="6"
                            min="3"
@@ -148,19 +148,21 @@
 
                     </textarea>
                 </div>
+                <div>
+                    <button type="submit">
+                        Crear cuenta
+                    </button>
+
+                    <button type="reset">
+                        Limpiar Formulario
+                    </button>
+
+                    <p> Ya tienes cuenta? <a href="iniciar-sesion.html"> Iniciar Sesion</a></p>
+
+                </div>
+
             </form>
-            <div>
-                <button type="submit">
-                    Crear cuenta
-                </button>
 
-                <button type="reset">
-                    Limpiar Formulario
-                </button>
-
-                <p> Ya tienes cuenta? <a href="iniciar-sesion.html"> Iniciar Sesion</a></p>
-
-            </div>
         </section>
     </main>
 
