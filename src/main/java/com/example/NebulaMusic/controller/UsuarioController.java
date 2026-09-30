@@ -41,7 +41,7 @@ public class UsuarioController {
 
     @PostMapping("/crear-cuenta")
     public String crearCuenta(@ModelAttribute Usuario usuario){
-        //validacion
+
         if(usuarioService.existeCorreo(usuario.getCorreo())){
             return "redirect:/error";
         }

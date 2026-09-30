@@ -1,23 +1,16 @@
-/* ==========================================================
-   NÉBULA MUSIC - CÓDIGO BASE (ESTILOS PARA ALUMNOS)
-   ==========================================================
-   Este archivo contiene únicamente la configuración inicial, 
-   reseteo básico y la paleta de colores del proyecto mediante 
-   variables de CSS (:root).
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 :root {
-    --bg-color-dark: #131200;      /* Fondo principal modo oscuro */
-    --text-color-dark: #EDF2F4;    /* Texto principal */
-    --links-color-dark: #EFBDEB;   /* Color normal de enlaces */
-    --links-hover-dark: #8D91C7;   /* Color de enlaces al pasar el mouse */
-    --nav-links: #8d3fd1;          /* Color de enlaces de navegación */
-    --highlight: #EDF67D;          /* Color de acento/resaltados */
+    --bg-color-dark: #131200;
+    --card-bg-dark: #1c1a05;
+    --text-color-dark: #EDF2F4;
+    --links-color-dark: #EFBDEB;
+    --links-hover-dark: #8D91C7;
+    --nav-links: #8d3fd1;
+    --highlight: #EDF67D;
+    --radius: 12px;
 }
 
-/* Reset básico de márgenes, paddings y modelo de caja */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,9 +22,20 @@ body {
     color: var(--text-color-dark);
     font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
 }
 
-/* Enlaces base */
+body.pagina-inicio {
+    grid-template-rows: auto auto 1fr auto;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
 a {
     color: var(--links-color-dark);
     text-decoration: none;
@@ -40,4 +44,412 @@ a {
 
 a:hover {
     color: var(--links-hover-dark);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 4px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(19, 18, 0, 0.95);
+    padding: 15px 20px;
+    border-bottom: 2px solid #2a280a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    width: 50px;
+}
+
+#menu-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color-dark);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#menu-toggle:focus-visible + .menu-button {
+    outline: 2px solid var(--highlight);
+    outline-offset: 4px;
+}
+
+nav ul {
+    display: none;
+    align-items: center;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(19, 18, 0, 0.98);
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-color-dark);
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--highlight);
+}
+
+#menu-toggle:checked ~ ul {
+    display: flex;
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    padding: 40px 24px;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/imgs/cover.jpg') center / cover;
+}
+
+.principal h1 {
+    max-width: 900px;
+    font-size: 2rem;
+}
+
+.principal span {
+    color: var(--highlight);
+}
+
+main {
+    max-width: 1200px;
+    width: 100%;
+    min-width: 0;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+#noticias {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+#noticias article {
+    background-color: var(--card-bg-dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #2a280a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+#noticias article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+#noticias article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#noticias .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#noticias h3 {
+    color: var(--highlight);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+#noticias p {
+    font-size: 0.9rem;
+    color: #cbd5e0;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 12px;
+    margin: 0 auto;
+}
+
+.auth-card {
+    background-color: var(--card-bg-dark);
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
+    padding: 30px 20px;
+    border-radius: 20px;
+    border: 1px solid #2a280a;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header img {
+    width: 80px;
+    margin: 0 auto 30px;
+}
+
+.auth-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.auth-header p {
+    color: #b7bcc8;
+    font-size: 0.85rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    border: 0;
+    min-width: 0;
+}
+
+.form-group > label,
+.form-group legend {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #cbd5e0;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid #444;
+    background-color: #2a280a;
+    color: var(--text-color-dark);
+    font: inherit;
+    font-size: 1rem;
+    color-scheme: dark;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--highlight);
+    box-shadow: 0 0 8px rgba(237, 246, 125, 0.3);
+}
+
+input:required:not([type='radio']):not([type='checkbox']),
+select:required {
+    border-left: 4px solid var(--nav-links);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #b1b0a4;
+    font-style: italic;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    align-items: center;
+}
+
+.radio-group label,
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #cbd5e0;
+}
+
+.radio-group input,
+.checkbox-group input {
+    accent-color: var(--highlight);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background-color: var(--nav-links);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--highlight);
+    color: black;
+    box-shadow: 0 0 15px rgba(237, 246, 125, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #cbd5e0;
+    color: #cbd5e0;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e0;
+    color: black;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+.auth-link a {
+    color: var(--highlight);
+    text-decoration: underline;
+}
+
+.auth-link a:hover {
+    color: var(--links-color-dark);
+}
+
+footer {
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b7bcc8;
+    background-color: #0e0d00;
+    border-top: 1px solid #2a280a;
+}
+
+@media (min-width: 600px) {
+    #noticias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .auth-container {
+        padding: 40px 20px;
+    }
+
+    .auth-card {
+        padding: 40px 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    nav {
+        padding: 15px 30px;
+    }
+
+    #menu-toggle,
+    .menu-button {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        gap: 25px;
+    }
+
+    .auth-card {
+        max-width: 550px;
+    }
+
+    .principal h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #noticias {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none;
+    }
+
+    #noticias article:hover {
+        transform: none;
+    }
 }

@@ -3,62 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nébula Music - Inicio (Código Base)</title>
-    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Nébula Music - Inicio</title>
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
-<body>
-
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav>
-        <a class="logo" href="index.html">
-            <img src="../static/imgs/nebula-03.svg" alt="Logo Nébula" width="100">
-        </a>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
-            <li><a href="registro.html">Registrarse</a></li>
+<body class="pagina-inicio">
+    <nav aria-label="Navegación principal">
+        <a class="logo" href="/index"><img src="/imgs/nebula-03.svg" alt="Nébula Music, ir al inicio"></a>
+        <input type="checkbox" id="menu-toggle" aria-label="Mostrar u ocultar menú" aria-controls="menu-principal">
+        <label for="menu-toggle" class="menu-button" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul id="menu-principal">
+            <li><a href="/index">Inicio</a></li>
+            <li><a href="/iniciar-sesion">Iniciar Sesión</a></li>
+            <li><a href="/registro">Registrarse</a></li>
         </ul>
     </nav>
-
-    <!-- CABECERA -->
     <header class="principal">
-        <img src="../static/imgs/cover.jpg" alt="Cover Nébula" width="100%" height="200" style="object-fit: cover;">
-        <h1>Tu música en la nube y en tu espacio.</h1>
+        <h1>Tu música en la <span>nube</span> y en tu <span>espacio.</span></h1>
     </header>
-
-    <!-- CONTENIDO PRINCIPAL -->
     <main>
-        
-        <!-- SECCIÓN DE NOTICIAS -->
-        <section id="noticias">
-            <h2>Novedades de la Semana</h2>
-
-            <!-- Artículo 1 -->
+        <section id="noticias" aria-label="Novedades de la semana">
             <article>
-                <h3>Taylor Swift en su nueva era</h3>
-                <p>El nuevo disco de Taylor, <i>"The life of a showgirl"</i> saldrá a la venta el 3 de octubre.</p>
+                <img src="/imgs/taylor.jpg" alt="Taylor Swift" width="330" height="180">
+                <div class="content">
+                    <h3>Taylor Swift en su nueva era</h3>
+                    <p>El nuevo disco de Taylor, <i>"The life of a showgirl"</i>, saldrá a la venta el 3 de octubre en todas las plataformas digitales.</p>
+                </div>
             </article>
-
-            <!-- Artículo 2 -->
             <article>
-                <h3>Oasis</h3>
-                <p>Los hermanos Liam y Noel Gallagher se reencontrarán con sus fans y traerán un setlist espectacular.</p>
+                <img src="/imgs/oasis.jpg" alt="Los hermanos Liam y Noel Gallagher de Oasis" width="330" height="180">
+                <div class="content">
+                    <h3>Oasis: El Reencuentro</h3>
+                    <p>Los hermanos Liam y Noel Gallagher anunciaron su regreso a los escenarios con un setlist histórico para su gira mundial.</p>
+                </div>
             </article>
-
-            <!-- Artículo 3 -->
             <article>
-                <h3>Los Reztos en concierto</h3>
-                <p>Gran éxito en el concierto tributo a Marea en Ciudad Obregón.</p>
+                <img src="/imgs/marea.jpg" alt="Cartel del tributo a Marea" width="330" height="180">
+                <div class="content">
+                    <h3>Tributo a Marea</h3>
+                    <p>La banda local "Los Reztos" ofreció un espectacular tributo con lleno total en Ciudad Obregón el pasado fin de semana.</p>
+                </div>
             </article>
-
         </section>
-
     </main>
-
-    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>Copyright Nébula 2025.</p>
+        <p>Copyright &copy; Nébula Music 2025. Todos los derechos reservados.</p>
     </footer>
-
 </body>
 </html>

@@ -4,66 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nébula Music - Iniciar Sesión</title>
-    <link rel="stylesheet" href="../static/styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
-
     <main class="auth-container">
         <section class="auth-card">
+            <header class="auth-header">
+                <a href="/index"><img src="/imgs/nebula-03.svg" alt="Nébula Music, ir al inicio"></a>
+                <h1>Inicia Sesión</h1>
+                <p>Ingresa tus credenciales de acceso</p>
+            </header>
             <form method="post" action="/autentation" enctype="application/x-www-form-urlencoded">
-
-                <h1>Inicio de Sesion</h1>
-                <div>
-                    <label for="correo">
-                        Correo Electronico
-
-                    </label>
-                    <input type="email"
-                           id="correo"
-                           name="correo"
-                           placeholder="correo@ejemplo.com"
-                           required
-                           minlength="5"
-                           maxlength="100"
-                    >
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required minlength="5" maxlength="100" autocomplete="email">
                 </div>
-
-                <div>
-                    <label for="Password">
-                        Password
-
-                    </label>
-                    <input type="password"
-                           id="Password"
-                           name="Password"
-                           placeholder="*********"
-                           required
-                           minlength="8"
-                           maxlength="100"
-                           >
-
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="********" required minlength="8" maxlength="100" autocomplete="current-password">
                 </div>
-
-                <div>
-                    <button type="submit">
-                        Iniciar Sesion
-                    </button>
-
-                    <button type="reset">
-                        Limpiar Formulario
-                    </button>
-
-                </div>
-
+                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+                <button type="reset" class="btn-secondary">Cancelar</button>
             </form>
-
-            <p> Aun no tienes cuenta? <a href="registro.html"> Registrate aqui</a></p>
+            <p class="auth-link">¿Aún no tienes cuenta? <a href="/registro">Regístrate</a></p>
         </section>
     </main>
-
     <footer>
-        <p>Copyright Nébula 2025.</p>
+        <p>Copyright &copy; Nébula Music 2025. Todos los derechos reservados.</p>
     </footer>
-
 </body>
 </html>

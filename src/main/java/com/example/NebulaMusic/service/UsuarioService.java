@@ -13,7 +13,7 @@ public class UsuarioService {
     public UsuarioService(){}
 
     public void registrar(Usuario usuario){
-        //reglas de negocio
+
         usuarios.put(usuario.getCorreo(), usuario);
 
     }
